@@ -178,6 +178,7 @@ QMUISynthesizeCGFloatProperty(lastKeyboardHeight, setLastKeyboardHeight)
     [[AVAudioSession sharedInstance] setCategory:category error:nil];
 }
 
+#if !TARGET_OS_MACCATALYST
 + (UInt32)categoryForLowVersionWithCategory:(NSString *)category {
     if ([category isEqualToString:AVAudioSessionCategoryAmbient]) {
         return kAudioSessionCategory_AmbientSound;
@@ -199,6 +200,7 @@ QMUISynthesizeCGFloatProperty(lastKeyboardHeight, setLastKeyboardHeight)
     }
     return kAudioSessionCategory_AmbientSound;
 }
+#endif
 
 @end
 
